@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Árboles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">INICIO</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="formulario_arbol.html">Crear Árbol</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container my-5">
+        <h1>Listado de Árboles</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre Común</th>
+                    <th>Tipo de Flor</th>
+                    <th>Dureza de la Madera</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="arbol : ${arboles}">
+                    <td th:text="${arbol.nombre_comun}"></td>
+                    <td th:text="${arbol.tipo_flor}"></td>
+                    <td th:text="${arbol.dureza_madera}"></td>
+                    <td><img th:src="${arbol.imagen_ruta}" alt="Imagen del árbol" width="50"></td>
+                    <td>
+                        <a href="/arboles/editar/{id}" class="btn btn-warning">Editar</a>
+                        <a href="/arboles/eliminar/{id}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

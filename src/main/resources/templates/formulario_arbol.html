@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Árbol</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">INICIO</a>
+        </div>
+    </nav>
+    
+    <div class="container my-5">
+        <h1 th:text="${arbol != null ? 'Editar Árbol' : 'Nuevo Árbol'}"></h1>
+        
+        <form action="/arboles/guardar" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="nombre_comun" class="form-label">Nombre Común</label>
+                <input type="text" id="nombre_comun" name="nombre_comun" class="form-control" placeholder="Nombre del árbol" th:value="${arbol != null ? arbol.nombre_comun : ''}" required>
+            </div>
+            <div class="mb-3">
+                <label for="tipo_flor" class="form-label">Tipo de Flor</label>
+                <input type="text" id="tipo_flor" name="tipo_flor" class="form-control" placeholder="Tipo de flor" th:value="${arbol != null ? arbol.tipo_flor : ''}">
+            </div>
+            <div class="mb-3">
+                <label for="dureza_madera" class="form-label">Dureza de la Madera</label>
+                <input type="number" id="dureza_madera" name="dureza_madera" class="form-control" placeholder="Dureza de la madera" th:value="${arbol != null ? arbol.dureza_madera : ''}" required>
+            </div>
+            <div class="mb-3">
+                <label for="imagen_ruta" class="form-label">Ruta de la Imagen</label>
+                <input type="text" id="imagen_ruta" name="imagen_ruta" class="form-control" placeholder="Ruta de la imagen" th:value="${arbol != null ? arbol.imagen_ruta : ''}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Árbol</button>
+        </form>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
